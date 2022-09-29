@@ -1,0 +1,275 @@
+html {
+  scroll-behavior: smooth;
+}
+
+.btn {
+  text-transform: none !important;
+}
+
+.btn-danger {
+  background-color: #ff3636 !important;
+}
+
+.bg-danger {
+  background-color: #ee3e3d !important;
+}
+
+.nav-name {
+  font-size: 14px !important;
+}
+
+.navbar .navbar-nav .nav-link:not(.btn) {
+  font-size: 0.9rem;
+  line-height: 2rem;
+}
+
+#hero .carousel .carousel-inner {
+  -webkit-box-shadow: 0px 10px 25px 0px rgba(0, 0, 0, 0) !important;
+  box-shadow: 0px 10px 25px 0px rgba(0, 0, 0, 0) !important;
+  border-radius: 0.1875rem;
+}
+
+#hero .now-ui-icons {
+  color: #fff;
+}
+
+#about-us {
+  background-image: url("./images/bg/biography-bg.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+#about-us .head-title:after {
+  display: block;
+  content: "";
+  width: 100px;
+  height: 2px;
+  background-color: #ff3636;
+  margin: 0 auto;
+  margin-top: 5px;
+}
+
+.service-image {
+  -webkit-transition: -webkit-transform 0.5s;
+  transition: -webkit-transform 0.5s;
+  transition: transform 0.5s;
+  transition: transform 0.5s, -webkit-transform 0.5s;
+}
+
+.service-image:hover {
+  -webkit-transform: scale(0.9);
+  transform: scale(0.9);
+  opacity: 0.9;
+}
+
+.MuiTimelineDot-defaultSecondary {
+  background-color: #ff3636 !important;
+}
+
+#services .head-title:after {
+  display: block;
+  content: "";
+  width: 150px;
+  height: 2px;
+  background-color: #ff3636;
+  margin: 0 auto;
+  margin-top: 5px;
+}
+
+#works .head-title:after {
+  display: block;
+  content: "";
+  width: 170px;
+  height: 2px;
+  background-color: #ff3636;
+  margin: 0 auto;
+  margin-top: 5px;
+}
+
+.video-js {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 10px;
+  -webkit-box-shadow: 0px 3px 3px 2px rgba(0, 0, 0, 0.2);
+  box-shadow: 0px 3px 3px 2px rgba(0, 0, 0, 0.2);
+}
+
+.vjs-poster {
+  border-radius: 5px;
+}
+
+.video-js .vjs-big-play-button {
+  background-color: #ff3636 !important;
+}
+
+.icon-size {
+  font-size: 50px;
+  padding: 0 0;
+  margin-top: 10px;
+}
+
+#ChooseUs .head-title:after {
+  display: block;
+  content: "";
+  width: 200px;
+  height: 2px;
+  background-color: #ff3636;
+  margin: 0 auto;
+  margin-top: 5px;
+}
+
+#ChooseUs .card {
+  border-radius: 10px;
+}
+
+#ChooseUs h4,
+#ChooseUs .h4 {
+  margin-top: 0;
+}
+
+.MuiBox-root-6 .MuiBox-root-10 .MuiBox-root-12 {
+  margin-bottom: 10px !important;
+}
+
+#Review {
+  background-image: url("./images/bg/biography-bg.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+#Review .head-title:after {
+  display: block;
+  content: "";
+  width: 210px;
+  height: 2px;
+  background-color: #ff3636;
+  margin: 0 auto;
+  margin-top: 5px;
+}
+
+#contactUs .head-title:after {
+  display: block;
+  content: "";
+  width: 130px;
+  height: 2px;
+  background-color: #ff3636;
+  margin: 0 auto;
+  margin-top: 5px;
+}
+
+#contactUs label {
+  font-size: 16px;
+  margin-top: 10px;
+}
+
+#Footer {
+  background-color: #272727;
+}
+
+#Footer a {
+  color: #ff3636;
+}
+
+.notif {
+  position: relative;
+  text-decoration: none;
+  display: inline-block;
+  font-weight: 400;
+  color: #212529;
+  text-align: center;
+  vertical-align: middle;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  background-color: transparent;
+  border: 1px solid transparent;
+  padding: .375rem .75rem;
+  font-size: 1rem;
+  line-height: 1.5;
+  border-radius: .25rem;
+  transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out,
+    box-shadow .15s ease-in-out;
+  width: 60px;
+  height: 60px;
+  line-height: 49px;
+  color: #000;
+  border: 2px solid #d4dfe9;
+  border-radius: 50%;
+  box-shadow: 0 2px 5px 0 rgb(0 0 0 / 16%), 0 2px 10px 0 rgb(0 0 0 / 12%);
+
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .btn {
+    transition: none;
+  }
+}
+
+.notif:hover {
+  background: #004976;
+  text-decoration: none;
+  color: white;
+}
+
+.notif .badge {
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  padding: 10px 10px;
+  border-radius: 50%;
+  background-color: #007bff;
+	border-color: #007bff;
+  color: white;
+}
+
+.notifi {
+  position: relative;
+  text-decoration: none;
+  display: inline-block;
+  font-weight: 400;
+  color: #212529;
+  text-align: center;
+  vertical-align: middle;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  background-color: transparent;
+  border: 1px solid transparent;
+  padding: .375rem .75rem;
+  font-size: 1rem;
+  line-height: 1.5;
+  border-radius: .25rem;
+  transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out,
+    box-shadow .15s ease-in-out;
+  width: 60px;
+  height: 60px;
+  line-height: 49px;
+  color: #d4dfe9;
+  border: 2px solid rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+  box-shadow: 0 2px 5px 0 rgb(0 0 0 / 16%), 0 2px 10px 0 rgb(0 0 0 / 12%);
+
+}
+
+.notifi:hover {
+  background: #004976;
+  text-decoration: none;
+  color: white;
+}
+
+.notifi .badge {
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  padding: 10px 10px;
+  border-radius: 50%;
+  background-color: #007bff;
+	border-color: #007bff;
+  color: white;
+}
+/*# sourceMappingURL=App.css.map */
