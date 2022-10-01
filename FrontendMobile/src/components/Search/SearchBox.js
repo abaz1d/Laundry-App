@@ -1,5 +1,5 @@
 import { StyleSheet, Text, View, Dimensions, TextInput } from 'react-native'
-import { IconSearch } from '../../assets/icon/icon';
+import { IconSearch } from '../../assets';
 import React from 'react'
 
 export default function SearchBox() {
@@ -19,7 +19,7 @@ const styles = StyleSheet.create({
     container: {
         flexDirection: 'row',
         backgroundColor: '#FFFFFF',
-        padding: 20,
+        padding: 10,
         borderRadius: 10,
         marginHorizontal: 30,
         shadowColor: "#000",

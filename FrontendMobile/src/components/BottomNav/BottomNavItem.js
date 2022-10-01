@@ -28,10 +28,11 @@ const styles = StyleSheet.create({
     container: {
         alignItems: 'center',
         justifyContent: 'center',
+        width: 120,
     },
     text: (isFocused) => ({
         fontSize: 10,
-        color: isFocused ? WARNA_UTAMA : WARNA_DISABLE,
+        color: isFocused ? '#000000' : WARNA_DISABLE,
         marginTop: 4,
     }),
 })

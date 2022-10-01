@@ -3,14 +3,14 @@ import React from 'react'
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { Home, Pesanan, Akun, Splash } from '../pages';
-import { BottomNavBox } from '../components/components';
+import { BottomNavBox } from '../components';
 
 const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
 
 const MainApp = () => {
     return (
-        <Tab.Navigator tabBar={props => <BottomNavBox {...props} />}>
+        <Tab.Navigator tabBar={props => <BottomNavBox {...props} />} ScreenOptions={{ tabBarHideOnKeyboard: true, tabBarStyle: [{ display: "flex" }, null]}}>
             <Tab.Screen name="Home" component={Home} options={{ headerShown: false }}/>
             <Tab.Screen name="Pesanan" component={Pesanan} options={{ headerShown: false }}/>
             <Tab.Screen name="Akun" component={Akun} options={{ headerShown: false }}/>
