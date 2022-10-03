@@ -4,6 +4,7 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { Home, Pesanan, Akun, Splash } from '../pages';
 import { BottomNavBox } from '../components';
+import TopNavBox from '../components/TopNav/TopNavBox';
 
 const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -23,6 +24,7 @@ const Router = () => {
         <Stack.Navigator initialRouteName="Splash">
             <Stack.Screen name="Splash" component={Splash} options={{ headerShown: false }} />
             <Stack.Screen name="MainApp" component={MainApp} options={{ headerShown: false }} />
+            <Stack.Screen name="TopNavBox" component={TopNavBox} options={{ headerShown: false }} />
         </Stack.Navigator>
     )
 }

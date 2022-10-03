@@ -1,28 +1,34 @@
-import { ImageBackground, StyleSheet, Text, View, Dimensions, Image, ScrollView } from 'react-native'
-import React from 'react'
+import { ImageBackground, StyleSheet, Text, View, Dimensions, Image, ScrollView, TouchableOpacity } from 'react-native'
+import React, {useState} from 'react'
 import { ImagePesananHeader, Avatar } from '../../assets'
-import { ButtonIcon, PesananAktif, SearchBox, PesananHeader, TopNavBox } from '../../components'
+import { ButtonIcon, PesananAktif, SearchBox, PesananHeader,TopNavBox } from '../../components'
 import { WARNA_ABU_ABU } from '../../utils/constant'
 
+
 const Pesanan = () => {
+  const [selectPesanan, setSelectPesanan] = useState('Riwayat');
   return (
     <View style={styles.page}>
       <ScrollView showsVerticalScrollIndicator={false}>
         <ImageBackground source={ImagePesananHeader} style={styles.header}>
           <PesananHeader />
         </ImageBackground>
-        <SearchBox />
+        <TopNavBox selectPesanan={selectPesanan} setSelectPesanan={setSelectPesanan} />
+        {selectPesanan !== 'Riwayat' ? (
         <View style={styles.pesananAktif}>
-          <Text style={styles.label}>Pesanan Aktif</Text>
           <PesananAktif noinvoice="Pesanan No. 0002142" status="Order Placed "/>
           <PesananAktif noinvoice="Pesanan No. 0002142" status="Order Picked"/>
           <PesananAktif noinvoice="Pesanan No. 0002142" status="Order Processing"/>
           <PesananAktif noinvoice="Pesanan No. 0002142" status="Order Delivered"/>
+        </View>
+        ) : (
+          <View style={styles.pesananAktif}>
           <PesananAktif noinvoice="Pesanan No. 0002142" status="Order Completed"/>
           <PesananAktif noinvoice="Pesanan No. 0002142" status="Order Completed"/>
           <PesananAktif noinvoice="Pesanan No. 0002142" status="Order Completed"/>
           <PesananAktif noinvoice="Pesanan No. 0002142" status="Order Completed"/>
         </View>
+         )}
       </ScrollView>
     </View>
   )
@@ -70,13 +76,6 @@ const styles = StyleSheet.create({
     marginLeft: 5,
     paddingTop: 5,
   },
-  label: {
-    fontSize: 18,
-    color: '#000000',
-    fontFamily: 'TitilliumWeb-Bold',
-    marginLeft: 30,
-    paddingTop: 15,
-  },
   iconLayanan: {
     flexDirection: 'row',
     flexWrap: 'wrap',
@@ -85,9 +84,8 @@ const styles = StyleSheet.create({
     marginTop: 10,
   },
   pesananAktif: {
-    backgroundColor: WARNA_ABU_ABU,
     flex: 1,
-    borderTopLeftRadius: 30,
-    borderTopRightRadius: 30,
+    marginTop: 30,
+    marginBottom: 30,
   }
 })

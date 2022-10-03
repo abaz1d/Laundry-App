@@ -1,48 +1,87 @@
-import { StyleSheet, Text, View } from 'react-native'
+import { StyleSheet, Text, View, Dimensions, TouchableOpacity } from 'react-native'
 import React from 'react'
 import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
+// import { Container, Tab, Tabs, StyleProvider, NativeBaseProvider } from 'native-base';
 import { NavigationContainer } from '@react-navigation/native';
-import DalamProses from './DalamProsesPesanan';
-import RiwayatPesanan from './RiwayatPesanan';
-import { TopNavItem } from './TopNavItem';
+import { DalamProses } from './DalamProsesPesanan';
+import { RiwayatPesanan } from './RiwayatPesanan';
+import TopNavItem from './TopNavItem';
+import { IconUnderlineOn } from '../../assets';
+import { WARNA_DISABLE } from '../../utils/constant';
 
 const Stack = createNativeStackNavigator();
 const Tab = createMaterialTopTabNavigator();
 
-function HomeScreen() {
+export default function TopNavBox({ selectPesanan, setSelectPesanan }) {
+    // const TopNavBox = () => {
+    console.log(selectPesanan);
     return (
-        <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-            <Text>Home!</Text>
+        <View style={styles.container}>
+            {selectPesanan == 'Dalam Proses' ? (
+                <TouchableOpacity style={styles.navigasi}>
+                    <Text style={styles.text}>Dalam Proses</Text>
+                    <IconUnderlineOn />
+                </TouchableOpacity>
+            ) : (
+                <TouchableOpacity style={styles.navigasi}
+                    onPress={() => setSelectPesanan('Dalam Proses')}>
+                    <Text style={styles.text2}>Dalam Proses</Text>
+                </TouchableOpacity>
+            )}
+
+            {selectPesanan == 'Riwayat' ? (
+                <TouchableOpacity style={styles.navigasi}>
+                    <Text style={styles.text}>Riwayat</Text>
+                    <IconUnderlineOn />
+                </TouchableOpacity>
+            ) : (
+                <TouchableOpacity style={styles.navigasi}
+                    onPress={() => setSelectPesanan('Riwayat')}>
+                    <Text style={styles.text2}>Riwayat</Text>
+                </TouchableOpacity>
+            )}
         </View>
-    );
-}
-
-function SettingsScreen() {
-    return (
-        <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-            <Text>Settings!</Text>
-        </View>
-    );
-}
-
-const MainApp = () => {
-    return (
-        <Tab.Navigator tabBar={props => <TopNavItem {...props} />}>
-            <Tab.Screen name="Home" component={HomeScreen} />
-            <Tab.Screen name="Settings" component={SettingsScreen} />
-            {/* <Tab.Screen name="Dalam Proses" component={DalamProses} options={{ headerShown: false }}/>
-      <Tab.Screen name="Riwayat" component={RiwayatPesanan} options={{ headerShown: false }}/> */}
-        </Tab.Navigator>
-    );
-}
-
-export default function TopNavBox() {
-    return (
-        <Stack.Navigator initialRouteName="MainApp">
-            <Stack.Screen name="MainApp" component={MainApp} options={{ headerShown: false }} />
-        </Stack.Navigator>
     )
 }
 
-const styles = StyleSheet.create({})
+const windowHeight = Dimensions.get('window').height;
+const windowWidth = Dimensions.get('window').width;
+
+const styles = StyleSheet.create({
+    container: {
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        alignItems: 'center',
+        backgroundColor: '#FFFFFF',
+        padding: 10,
+        borderRadius: 10,
+        marginHorizontal: 30,
+        shadowColor: "#000",
+        shadowOffset: {
+            width: 0,
+            height: 5,
+        },
+        shadowOpacity: 0.34,
+        shadowRadius: 6.27,
+
+        elevation: 10,
+        marginTop: - 0.034 * windowHeight,
+    },
+    navigasi: {
+        justifyContent: 'center',
+        alignItems: 'center',
+        width: 0.4 * windowWidth,
+        padding: 5,
+    },
+    text: {
+        fontSize: 16,
+        fontFamily: 'TitilliumWeb-SemiBold',
+        color: '#000000'
+    },
+    text2: {
+        fontSize: 16,
+        fontFamily: 'TitilliumWeb-SemiBold',
+        color: WARNA_DISABLE
+    }
+})
