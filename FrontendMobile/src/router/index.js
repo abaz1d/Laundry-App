@@ -2,9 +2,15 @@ import { StyleSheet, Text, View } from 'react-native'
 import React from 'react'
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import { Home, Pesanan, Akun, Splash } from '../pages';
+import { Home, Pesanan, Akun, Splash,
+CuciKering,
+CuciKomplit,
+PaketBulanan,
+PaketTahunan,
+PaketUrgent,
+SetrikaAja
+} from '../pages';
 import { BottomNavBox } from '../components';
-import TopNavBox from '../components/TopNav/TopNavBox';
 
 const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -24,7 +30,12 @@ const Router = () => {
         <Stack.Navigator initialRouteName="Splash">
             <Stack.Screen name="Splash" component={Splash} options={{ headerShown: false }} />
             <Stack.Screen name="MainApp" component={MainApp} options={{ headerShown: false }} />
-            <Stack.Screen name="TopNavBox" component={TopNavBox} options={{ headerShown: false }} />
+            <Stack.Screen name="Cuci Kering" component={CuciKering} options={{ headerShown: false }} />
+            <Stack.Screen name="Cuci Komplit" component={CuciKomplit} options={{ headerShown: false }} />
+            <Stack.Screen name="Paket Bulanan" component={PaketBulanan} options={{ headerShown: false }} />
+            <Stack.Screen name="Paket Tahunan" component={PaketTahunan} options={{ headerShown: false }} />
+            <Stack.Screen name="Paket Urgent" component={PaketUrgent} options={{ headerShown: false }} />
+            <Stack.Screen name="Setrika Aja" component={SetrikaAja} options={{ headerShown: false }} />
         </Stack.Navigator>
     )
 }

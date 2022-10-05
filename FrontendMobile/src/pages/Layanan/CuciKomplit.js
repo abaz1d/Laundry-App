@@ -1,30 +1,33 @@
-import { ImageBackground, StyleSheet, View, Dimensions, Image, ScrollView } from 'react-native'
+import { ImageBackground, StyleSheet, View, Dimensions, Image, ScrollView, Text } from 'react-native'
 import React, { useState } from 'react'
 import { ImagePesananHeader } from '../../assets'
-import { ButtonIcon, PesananAktif, SearchBox, PesananHeader, TopNavBox } from '../../components'
-import DalamProses from '../../components/TopNav/DalamProsesPesanan'
-import RiwayatPesanan from '../../components/TopNav/RiwayatPesanan'
+import { ButtonIcon, PesananAktif, SearchBox, LayananHeader, TopNavBox } from '../../components'
+import PesananTab from '../../components/PesananHeader/PesananTab'
 
-const Pesanan = () => {
-  const [selectPesanan, setSelectPesanan] = useState('Riwayat');
+const CuciKomplit = () => {
+  const [selectGender, setSelectGender] = useState('');
   return (
     <View style={styles.page}>
       <ScrollView showsVerticalScrollIndicator={false}>
         <ImageBackground source={ImagePesananHeader} style={styles.header}>
-          <PesananHeader />
+          <LayananHeader namaLayanan={'Cuci Komplit'} />
         </ImageBackground>
-        <TopNavBox selectPesanan={selectPesanan} setSelectPesanan={setSelectPesanan} />
-        {selectPesanan !== 'Riwayat' ? (
-          <DalamProses />
+        <PesananTab selectGender={selectGender} setSelectGender={setSelectGender} />
+        {/* {selectGender === "Men's Wear" ? (
+          <Text>"Men's Wear"</Text>
+        ) : selectGender === "Women's Wear" ? (
+          <Text>"Women's Wear"</Text>
         ) : (
-          <RiwayatPesanan />
-        )}
+          <Text>"Household & Accessories"</Text>
+        )} */}
+
+
       </ScrollView>
     </View>
   )
 }
 
-export default Pesanan
+export default CuciKomplit
 
 const windowWidth = Dimensions.get('window').width;
 const windowHeight = Dimensions.get('window').height;

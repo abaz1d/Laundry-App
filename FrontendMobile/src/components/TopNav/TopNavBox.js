@@ -2,11 +2,6 @@ import { StyleSheet, Text, View, Dimensions, TouchableOpacity } from 'react-nati
 import React from 'react'
 import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-// import { Container, Tab, Tabs, StyleProvider, NativeBaseProvider } from 'native-base';
-import { NavigationContainer } from '@react-navigation/native';
-import { DalamProses } from './DalamProsesPesanan';
-import { RiwayatPesanan } from './RiwayatPesanan';
-import TopNavItem from './TopNavItem';
 import { IconUnderlineOn } from '../../assets';
 import { WARNA_DISABLE } from '../../utils/constant';
 
@@ -14,8 +9,6 @@ const Stack = createNativeStackNavigator();
 const Tab = createMaterialTopTabNavigator();
 
 export default function TopNavBox({ selectPesanan, setSelectPesanan }) {
-    // const TopNavBox = () => {
-    console.log(selectPesanan);
     return (
         <View style={styles.container}>
             {selectPesanan == 'Dalam Proses' ? (
