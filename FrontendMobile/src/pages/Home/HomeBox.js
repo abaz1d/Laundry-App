@@ -1,13 +1,36 @@
-import { ImageBackground, StyleSheet, Text, View, Dimensions, Image, ScrollView } from 'react-native'
-import React from 'react'
+import { SafeAreaView, ImageBackground, StyleSheet, Text, View, Dimensions, Image, ScrollView, FlatList } from 'react-native'
+import React, { useEffect, useRef, useState } from 'react';
 import { ImageHeader, Avatar } from '../../assets'
 import { ButtonIcon, PesananAktif, SearchBox } from '../../components'
 import { WARNA_ABU_ABU } from '../../utils/constant'
 
 const Home = () => {
+  const [order, setOrder] = useState([]);
+  const [isLoading, setLoading] = useState(true);
+
+  useEffect(() => {
+		const fetchData = async () => {
+			try {
+				let response = await fetch('http://localhost:3001/orders?email=coba@gmail.com');
+       
+				if (response.status === 200) {
+					let data = await response.json();
+					setOrder(data);
+				} else {
+					throw 'Error fetching users list'
+				}
+			} catch (error) {
+				console.log(error)
+			}
+		}
+		fetchData();
+		setLoading(false);
+
+	}, [order.length])
+
   return (
     <View style={styles.page}>
-      <ScrollView showsVerticalScrollIndicator={false}>
+      <ScrollView showsVerticalScrollIndicator={false} keyboardShouldPersistTaps='handled' style={styles.scroll}>
         <ImageBackground source={ImageHeader} style={styles.header}>
           <Image source={Avatar} style={styles.avatar} />
           <View style={styles.greet}>
@@ -29,14 +52,15 @@ const Home = () => {
         </View>
         <View style={styles.pesananAktif}>
           <Text style={styles.label}>Pesanan Aktif</Text>
-          <PesananAktif noinvoice="Pesanan No. 0002142" status="Order Placed "/>
-          <PesananAktif noinvoice="Pesanan No. 0002142" status="Order Picked"/>
-          <PesananAktif noinvoice="Pesanan No. 0002142" status="Order Processing"/>
-          <PesananAktif noinvoice="Pesanan No. 0002142" status="Order Delivered"/>
-          <PesananAktif noinvoice="Pesanan No. 0002142" status="Order Completed"/>
-          <PesananAktif noinvoice="Pesanan No. 0002142" status="Order Completed"/>
-          <PesananAktif noinvoice="Pesanan No. 0002142" status="Order Completed"/>
-          <PesananAktif noinvoice="Pesanan No. 0002142" status="Order Completed"/>
+          <FlatList
+            data={order}
+            renderItem={
+              ({ item }) => <PesananAktif
+                key={item._id}
+                noinvoice={'Pesanan No.' + item.orderDetails}
+                status={item.status} />
+            }
+          />
         </View>
       </ScrollView>
     </View>
@@ -51,6 +75,10 @@ const windowHeight = Dimensions.get('window').height;
 const styles = StyleSheet.create({
   page: {
     flex: 1,
+    backgroundColor: '#FFFFFF',
+  },
+  scroll: {
+    flexGrow: 1,
     backgroundColor: '#FFFFFF',
   },
   header: {

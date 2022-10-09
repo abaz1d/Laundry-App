@@ -2,82 +2,26 @@ import { StyleSheet, Text, View, Dimensions, TouchableOpacity, ScrollView } from
 import React, { useState, useCallback } from 'react'
 import { IconUnderlineOn } from '../../assets';
 import { WARNA_DISABLE } from '../../utils/constant';
-import DropDownPicker from 'react-native-dropdown-picker';
+import { Picker } from '@react-native-picker/picker';
 
-const PesananTab = ({ selectGender, setSelectGender }) => {
-    const [open, setOpen] = useState(false);
-    const [value, setValue] = useState(null);
-    const [items, setItems] = useState([
-        { label: 'Apple', value: 'apple' },
-        { label: 'Banana', value: 'banana' }
-    ]);
-    const [companyOpen, setCompanyOpen] = useState(false);
-    const [companyValue, setCompanyValue] = useState(null);
-    const [company, setComapny] = useState([
-        { label: "PUCIT", value: "pucit" },
-        { label: "UCP", value: "ucp" },
-        { label: "UET", value: "uet" },
-    ]);
-    const [loading, setLoading] = useState(false);
-    const onCompanyOpen = useCallback(() => {
-        setGenderOpen(false);
-    }, []);
+const PesananTab = () => {
+    const [selectGender, setSelectGender] = useState();
     return (
         <View style={styles.container}>
-            <DropDownPicker
-                style={styles.dropdown}
-                open={companyOpen}
-                value={companyValue} //companyValue
-                items={company}
-                setOpen={setCompanyOpen}
-                setValue={setCompanyValue}
-                setItems={setComapny}
-                placeholder="Select Company"
-                placeholderStyle={styles.placeholderStyles}
-                loading={loading}
-                activityIndicatorColor="#5188E3"
-                searchable={true}
-                searchPlaceholder="Search your company here..."
-                onOpen={onCompanyOpen}
-                // onChangeValue={onChange}
-                zIndex={1000}
-                zIndexInverse={3000}
-            />
-            {selectGender == "Men's Wear" ? (
-                <TouchableOpacity style={styles.navigasi}>
-                    <Text style={styles.text}>Men's Wear</Text>
-                    <IconUnderlineOn />
-                </TouchableOpacity>
-            ) : (
-                <TouchableOpacity style={styles.navigasi}
-                    onPress={() => setSelectGender("Men's Wear")}>
-                    <Text style={styles.text2}>Men's Wear</Text>
-                </TouchableOpacity>
-            )}
-
-            {selectGender == "Women's Wear" ? (
-                <TouchableOpacity style={styles.navigasi}>
-                    <Text style={styles.text}>Women's Wear</Text>
-                    <IconUnderlineOn />
-                </TouchableOpacity>
-            ) : (
-                <TouchableOpacity style={styles.navigasi}
-                    onPress={() => setSelectGender("Women's Wear")}>
-                    <Text style={styles.text2}>Women's Wear</Text>
-                </TouchableOpacity>
-            )}
-
-            {selectGender == "Household & Accessories" ? (
-                <TouchableOpacity style={styles.navigasi}>
-                    <Text style={styles.text}>Household & Accessories</Text>
-                    <IconUnderlineOn />
-                </TouchableOpacity>
-            ) : (
-                <TouchableOpacity style={styles.navigasi}
-                    onPress={() => setSelectGender("Household & Accessories")}>
-                    <Text style={styles.text2}>Household & Accessories</Text>
-                </TouchableOpacity>
-            )}
+            <View style={styles.page}>
+                <Picker
+                    selectedValue={selectGender}
+                    onValueChange={(itemValue, itemIndex) =>
+                        setSelectGender(itemValue)
+                    }>
+                   <Picker.Item label="Cuci Komplit" value="Cuci Komplit" />
+                    <Picker.Item label="Cuci Kering" value="Cuci Kering" />
+                    <Picker.Item label="Setrika Aja" value="Setrika Aja" />
+                    <Picker.Item label="Paket Bulanan" value="Paket Bulanan" />
+                    <Picker.Item label="Paket Tahunan" value="Paket Tahunan" />
+                    <Picker.Item label="Paket Urgent" value="Paket Urgent" />
+                </Picker>
+            </View>
         </View>
     )
 }
@@ -106,7 +50,13 @@ const styles = StyleSheet.create({
         elevation: 10,
         marginTop: - 0.034 * windowHeight,
         flexGrow: 1,
+        flexDirection: 'row',
+        zIndex: 1,
     },
+    page: {
+        flex: 1,
+        backgroundColor: 'transparent',
+      },
     navigasi: {
         justifyContent: 'center',
         alignItems: 'center',

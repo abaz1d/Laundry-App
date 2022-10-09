@@ -15,14 +15,17 @@ const Dashboard = (props) => {
   const auth = useAuth();
 
   const [order, setOrder] = useState([]);
+  console.log('order', order);
   const [preLoader, setPreLoader] = useState(true);
 
   useEffect(() => {
 		const fetchData = async () => {
 			try {
-				let response = await fetch('http://localhost:3001/orders?email=' + auth.user.email);
+				let response = await fetch('http://localhost:3001/orders?email=coba@gmail.com');
+       
 				if (response.status === 200) {
 					let data = await response.json();
+          console.log('data', data);
 					setOrder(data);
 				} else {
 					throw 'Error fetching users list'

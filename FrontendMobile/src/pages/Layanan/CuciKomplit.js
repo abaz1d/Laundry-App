@@ -3,25 +3,19 @@ import React, { useState } from 'react'
 import { ImagePesananHeader } from '../../assets'
 import { ButtonIcon, PesananAktif, SearchBox, LayananHeader, TopNavBox } from '../../components'
 import PesananTab from '../../components/PesananHeader/PesananTab'
+import { Picker } from '@react-native-picker/picker';
 
 const CuciKomplit = () => {
-  const [selectGender, setSelectGender] = useState('');
+  const [selectGender, setSelectGender] = useState();
+
   return (
     <View style={styles.page}>
       <ScrollView showsVerticalScrollIndicator={false}>
         <ImageBackground source={ImagePesananHeader} style={styles.header}>
           <LayananHeader namaLayanan={'Cuci Komplit'} />
         </ImageBackground>
-        <PesananTab selectGender={selectGender} setSelectGender={setSelectGender} />
-        {/* {selectGender === "Men's Wear" ? (
-          <Text>"Men's Wear"</Text>
-        ) : selectGender === "Women's Wear" ? (
-          <Text>"Women's Wear"</Text>
-        ) : (
-          <Text>"Household & Accessories"</Text>
-        )} */}
-
-
+        <PesananTab />
+       
       </ScrollView>
     </View>
   )
@@ -35,7 +29,7 @@ const windowHeight = Dimensions.get('window').height;
 const styles = StyleSheet.create({
   page: {
     flex: 1,
-    backgroundColor: '#FFFFFF',
+    backgroundColor: 'transparent',
   },
   header: {
     width: windowWidth,

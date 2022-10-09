@@ -145,5 +145,5 @@ app.get('/', (req, res) => {
 
 // PORT
 app.listen(process.env.PORT || port, () => {
-	console.log('listening on port');
+	console.log('listening on port', port );
 });
