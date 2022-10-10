@@ -86,10 +86,9 @@ cd Laundry-App
 # Install dependencies for client Mobile App
 cd FrontendMobile && yarn install
 
-# Start client Android Mobile App
+# Start client Android/iOS Mobile App
 yarn run android
-
-# Start client IOS Mobile App
+# or
 yarn run ios
 ```
 
