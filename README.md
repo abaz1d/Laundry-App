@@ -86,8 +86,11 @@ cd Laundry-App
 # Install dependencies for client Mobile App
 cd FrontendMobile && yarn install
 
-# Start client Web App
+# Start client Android Mobile App
 yarn run android
+
+# Start client IOS Mobile App
+yarn run ios
 ```
 
 this application should run on port 3000 , you can access it through browser, just go to [http://localhost:3000/](http://localhost:3000/) for Client Web App. and [http://localhost:3001/](http://localhost:3001/) for RESTful APIs.
