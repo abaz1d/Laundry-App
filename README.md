@@ -4,7 +4,7 @@
 
 This is a simple full stack React application which provides a solid starting point for [ExpressJS](https://expressjs.com/), [ReactJS](https://reactjs.org/), [NodeJS](https://nodejs.org/en/), and [MongoDB](https://www.mongodb.com/) based applications. Client side code is written in React and the backend API is written using Express.
 
-This Laundry-App is an android-based information system built with React Native. The results of this implementation can produce an android application so that consumers can directly order so that consumers' dirty clothes can be picked up directly by laundry employees.
+Laundry-App is an Android-based application built with React Native. while the website version is built with React Redux. The results of this implementation can produce a web and android application so that consumers can directly order so that consumers' dirty clothes can be taken directly by laundry employees.
 
 ## Before You Begin
 
